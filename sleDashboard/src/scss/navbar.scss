@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(45deg, #1e2a3a, #3b4c5b); /* Gradient background */
+  padding: 15px 30px; /* Increased padding for more space */
+  color: #fff;
+  z-index: 1000;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Softer shadow for elegance */
+  transition: all 0.3s ease-in-out;
+}
+
+.greet{
+  font-size: 18px;
+  margin-right:10px ;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* More space between logo and text */
+}
+
+.navbar .logo-imgN {
+  width: 60px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+
+.navbar .logo img:hover {
+  transform: scale(1.1); /* Subtle scale effect on hover */
+}
+
+.navbar .logo span {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e9e5df; /* Bold accent color */
+}
+
+/* Navbar icons and notifications aligned to the right */
+.navbar .navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: auto; /* Aligning navbar items to the right */
+}
+
+.navbar .navbar-links img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.navbar .notification {
+  position: relative;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.navbar .notification span {
+  background-color: red;
+  color: white;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* User info and logout on the right */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.icons .user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #333;
+  padding: 6px 14px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.icons .user-profile:hover {
+  background-color: #444;
+}
+
+.icons .user-profile .profile-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fea116;
+  transition: transform 0.3s ease;
+}
+
+.icons .user-profile .profile-photo:hover {
+  transform: scale(1.1);
+}
+
+.icons .user-profile .username {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.icons .logout {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.icons .logout img {
+  width: 28px;
+  height: 28px;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.icons .logout:hover img {
+  opacity: 0.7;
+  transform: scale(1.2); /* Slight scale effect on hover */
+}
+
+.icons a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.icons a:hover {
+  color: #fea116;
+}
+
+/* Avoid navbar overlap */
+body {
+  padding-top: 40px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #1e2a3a;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px 0;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .icons {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .notification {
+    display: none;
+  }
+}

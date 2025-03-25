@@ -1,0 +1,252 @@
+.user-card-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f4f4f9;
+  border-radius: 12px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  .Employeeaddbtn {
+    background-color: #ff9800;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+
+    &:hover {
+      background: #e68900;
+      transform: scale(1.05);
+    }
+  }
+
+  .title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .user-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 10px;
+
+    .user-card {
+      background: #fff;
+      padding: 20px;
+      color: #333;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .user-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 15px;
+        border: 3px solid #007bff;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .user-info {
+        text-align: center;
+
+        h2 {
+          font-size: 1.3rem;
+          color: #333;
+          margin-bottom: 8px;
+        }
+
+        p {
+          font-size: 0.95rem;
+          color: #555;
+          margin-bottom: 5px;
+        }
+      }
+
+      .user-actions {
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        button {
+          padding: 10px 14px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 1rem;
+        }
+
+        .add-manager-btn {
+          background-color: #cc851b;
+          color: white;
+
+          &:hover {
+            background: #e68900;
+          }
+
+          &:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+          }
+        }
+
+        .update-btn {
+          background-color: #FFC107;
+          color: black;
+
+          &:hover {
+            background: #e6ac00;
+          }
+        }
+
+        .delete-btn {
+          background-color: #f44336;
+          color: white;
+
+          &:hover {
+            background: #da190b;
+          }
+        }
+      }
+    }
+  }
+
+  .no-users {
+    font-size: 1.2rem;
+    color: #777;
+    margin-top: 20px;
+  }
+
+  /* Modal Styles */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      width: 400px;
+      max-width: 90%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 1.5rem;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        input, select {
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          font-size: 1rem;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            border-color: #007bff;
+            outline: none;
+          }
+        }
+
+        .modal-actions {
+          display: flex;
+          gap: 10px;
+          justify-content: flex-end;
+          margin-top: 20px;
+
+          button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+
+            &:first-child {
+              background-color: #4CAF50;
+              color: white;
+
+              &:hover {
+                background-color: #45a049;
+              }
+            }
+
+            &:last-child {
+              background-color: #f44336;
+              color: white;
+
+              &:hover {
+                background-color: #da190b;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .user-card-container {
+    padding: 15px;
+    margin: 20px;
+  }
+
+  .user-cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .Employeeaddbtn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .modal {
+    .modal-content {
+      width: 90%;
+      padding: 15px;
+    }
+  }
+}

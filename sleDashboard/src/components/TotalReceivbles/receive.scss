@@ -1,0 +1,198 @@
+.receivables {
+    font-family: "Arial", sans-serif;
+  
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+      &:hover {
+        background-color: rgba(196, 204, 253, 0);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+  
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+  
+        .title {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+  
+          .icon {
+            font-size: 24px;
+            color: #fe9e16;
+          }
+  
+          span {
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+          }
+        }
+  
+        .arrow-icon {
+          font-size: 18px;
+          color: #666;
+          cursor: pointer;
+          transition: color 0.3s ease;
+  
+          &:hover {
+            color: #fe9e16;
+          }
+        }
+      }
+  
+      .receivables-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+  
+        .receivables-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: #333;
+          padding: 12px;
+          margin: 8px 0;
+          border-radius: 8px;
+          background-color: #f4f4f4;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.3s ease;
+  
+          &:hover {
+            background-color: #fe9e16;
+            color: #fff;
+          }
+  
+          &.active {
+            background-color: #4a90e2;
+            color: #fff;
+            font-weight: 600;
+          }
+  
+          .amount {
+            font-weight: 600;
+            color: #333;
+          }
+  
+          &.active .amount {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeIn 0.3s ease;
+  
+      .popup {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        animation: slideIn 0.3s ease;
+  
+        .popup-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+  
+          h3 {
+            font-size: 20px;
+            color: #333;
+          }
+  
+          .close-icon {
+            font-size: 18px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+  
+            &:hover {
+              color: #ff4d4d;
+            }
+          }
+        }
+  
+        .form-group {
+          margin-bottom: 15px;
+  
+          label {
+            display: block;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+          }
+  
+          select,
+          input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+  
+            &:focus {
+              border-color: #fe9e16;
+              outline: none;
+            }
+          }
+        }
+  
+        .submit-btn {
+          width: 100%;
+          padding: 12px;
+          background: #fe9e16;
+          color: #fff;
+          border: none;
+          border-radius: 8px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background: #e88b14;
+          }
+        }
+      }
+    }
+  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  
+    @keyframes slideIn {
+      from {
+        transform: translateY(-20px);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+  }
+  

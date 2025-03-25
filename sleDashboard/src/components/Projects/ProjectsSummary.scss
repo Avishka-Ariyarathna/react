@@ -1,0 +1,353 @@
+// Variables
+$primary-color: #52719a;
+$secondary-color: #5a81a8;
+$construction-color: #2196F3; // Blue
+$hold-color: #FFC107; // Yellow
+$shutdown-color: #F44336; // Red
+$text-color: #555;
+$background-color: #f9f9f9;
+$border-color: #ddd;
+
+// Container
+.ps-container {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 400px; // Adjust as needed for your grid system
+  padding: 20px;
+  background-color: $background-color;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  height: 600px; // Fixed height for the container
+  display: flex;
+  flex-direction: column;
+
+  .ps-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-shrink: 0; // Prevents header from shrinking
+
+    h2 {
+      color: $text-color;
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .ps-refresh-btn {
+      padding: 6px 12px;
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+
+      &:hover:not(:disabled) {
+        background-color: $secondary-color;
+      }
+
+      &:disabled {
+        background-color: ($primary-color, 20%);
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .ps-plants-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; // Allows the list to take remaining space
+    overflow-y: scroll; // Enables vertical scrolling
+    -webkit-overflow-scrolling: touch; // Smooth scrolling on touch devices
+
+    // Hide scrollbar visibility
+    -ms-overflow-style: none; // IE and Edge
+    scrollbar-width: none; // Firefox
+    &::-webkit-scrollbar {
+      display: none; // Chrome, Safari, and Opera
+    }
+
+    .ps-plant-item {
+      padding: 15px 0;
+      border-bottom: 1px solid $border-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .ps-plant-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .ps-plant-name {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: $text-color;
+        }
+
+        .ps-status-badge {
+          padding: 4px 10px;
+          border-radius: 10px;
+          font-size: 0.85rem;
+          color: white;
+          font-weight: 500;
+        }
+      }
+
+      .ps-progress-section {
+        margin-bottom: 10px;
+
+        .ps-progress-label {
+          font-size: 0.9rem;
+          color: ($text-color, 10%);
+          margin-bottom: 5px;
+        }
+
+        .ps-progress-bar {
+          width: 100%;
+          height: 6px;
+          background: ($border-color, 10%);
+          border-radius: 3px;
+          overflow: hidden;
+
+          .ps-progress-fill {
+            height: 100%;
+            background: $primary-color;
+            transition: width 0.5s ease-in-out;
+          }
+        }
+      }
+
+      .ps-details {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        color: ($text-color, 10%);
+
+        .ps-detail-item {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  .ps-loading {
+    text-align: center;
+    padding: 20px;
+    color: $text-color;
+    font-size: 1rem;
+    flex-grow: 1; // Ensures loading takes up space when visible
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ps-spinner {
+      width: 24px;
+      height: 24px;
+      border: 3px solid $border-color;
+      border-top: 3px solid $primary-color;
+      border-radius: 50%;
+      animation: ps-spin 1s linear infinite;
+      display: inline-block;
+      margin-right: 8px;
+    }
+  }
+}
+
+.ps-status-feasibility {
+  background-color: #ad9e1d; /* Yellow for Feasibility */
+  color: #000;
+}
+
+.ps-status-pre-feasibility {
+  background-color: #2196f3; /* Blue for Pre-Feasibility */
+  color: #fff;
+}
+
+.ps-status-hold {
+  background-color: #f44336; /* Red for On-Hold */
+  color: #fff;
+}
+
+
+.ps-status-default {
+  background: ($text-color, 20%);
+}
+
+@keyframes ps-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+// Modal Overlay
+.ps-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-in-out;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+// Modal Container
+.ps-modal {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+
+  h3 {
+    color: $text-color;
+    font-size: 1.3rem;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  @keyframes slideUp {
+    from { 
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+// Form Group
+.ps-form-group {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    color: $text-color;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  select,
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: $text-color;
+    background-color: $background-color;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 5px rgba($primary-color, 0.3);
+      outline: none;
+    }
+  }
+
+  select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23555" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+  }
+
+  input[type="number"] {
+    appearance: textfield;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  // Date Picker Specific Styling
+  input[type="date"] {
+    position: relative;
+    // Ensure the date picker icon is styled consistently
+    &::-webkit-calendar-picker-indicator {
+      cursor: pointer;
+      padding: 5px;
+      filter: invert(40%) sepia(20%) saturate(500%) hue-rotate(180deg); // Matches $primary-color tone
+    }
+    &:hover::-webkit-calendar-picker-indicator {
+      filter: invert(50%) sepia(30%) saturate(600%) hue-rotate(180deg); // Slightly brighter on hover
+    }
+  }
+}
+
+// Modal Buttons
+.ps-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.ps-modal-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.ps-save-btn {
+  background-color: $primary-color;
+  color: white;
+  &:hover { background-color: $secondary-color; }
+}
+
+.ps-cancel-btn {
+  background-color: #e0e0e0;
+  color: $text-color;
+  &:hover { background-color: (#e0e0e0, 10%); }
+}
+
+.ps-update-btn {
+ 
+  padding: 2px 6px; // Adjusted padding for icon
+
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem; // Slightly larger for better icon visibility
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px; // Fixed width for consistency
+  height: 20px; // Fixed height for consistency
+  
+  &:hover {
+    background-color: $secondary-color;
+  }
+}

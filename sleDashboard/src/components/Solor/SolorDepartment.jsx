@@ -7,8 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 import ChatBox from "../chatbox/ChatBox";
 import "../../scss/plantdetailcommon.scss";
 
-const API_BASE_URL = "http://localhost:4000/api";
-const Image_Based_URL = "http://localhost:4000";
+const API_BASE_URL = "http://139.59.251.39:4000/api";
+const Image_Based_URL = "http://139.59.251.39:4000";
 
 const Solor = () => {
   const plant_id = 7;

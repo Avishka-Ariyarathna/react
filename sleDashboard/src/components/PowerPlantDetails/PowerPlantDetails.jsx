@@ -16,7 +16,7 @@ import BannerImage from "../../assets/banner3.webp";
 
 // Replace this with your actual server URL
 
-const API_BASE_URL = "http://localhost:4000/api";
+const API_BASE_URL = "http://139.59.251.39:4000/api";
 
 const PowerPlantGallery = () => {
   const { id } = useParams(); // Get plant ID from URL

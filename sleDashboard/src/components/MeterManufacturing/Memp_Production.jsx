@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../scss/mempProduction.scss";
 
-const API_BASE_URL = "http://localhost:4000/api/memp-productn";
+const API_BASE_URL = "http://139.59.251.39:4000/api/memp-productn";
 
 const Memp_Production = () => {
   const [productionData, setProductionData] = useState([]);

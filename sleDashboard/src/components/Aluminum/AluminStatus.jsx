@@ -8,7 +8,7 @@ import "../../scss/plantdetailcommon.scss";
 
 // Replace this with your actual server URL
 // const API_BASE_URL = "https://2ece-124-43-4-17.ngrok-free.app/api";
-const API_BASE_URL = "http://localhost:4000/api";
+const API_BASE_URL = "http://139.59.251.39:4000/api";
 
 const Aluminum = () => {
   const plant_id = 6;

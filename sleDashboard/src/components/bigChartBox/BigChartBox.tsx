@@ -12,7 +12,7 @@ import {
 import "./bigChartBox.scss";
 
 
-const API_BASE_URL = "http://localhost:4000/api";
+const API_BASE_URL = "http://139.59.251.39:4000/api";
 
 
 const BigChartBox = () => {

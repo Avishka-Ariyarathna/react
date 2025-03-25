@@ -4,7 +4,7 @@ import "./eventlist.scss"; // Import the SCSS file for styling
 
 // Replace this with your actual server URL
 
-const API_BASE_URL = "http://localhost:4000/api";
+const API_BASE_URL = "http://139.59.251.39:4000/api";
 
 const EventTable = () => {
   const [events, setEvents] = useState([]);
